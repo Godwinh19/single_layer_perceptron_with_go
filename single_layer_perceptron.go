@@ -19,7 +19,7 @@ type Perceptron struct {
 We'll build our functions in order to:
 1- compute dot within two vectors
 2- add two vectors and return result
-3- mutiply a number by a matrix
+3- multiply a number by a matrix
 */
 func dotProduct(vect1, vect2 []float64) float64 {
 	dot := 0.0
@@ -37,6 +37,7 @@ func add(vect1, vect2 []float64) []float64 {
 	return result
 }
 
+
 func scalarMatMul(scalar float64, matrix []float64) []float64 {
 	result := make([]float64, len(matrix))
 	for i := 0; i < len(matrix); i++ {
@@ -47,7 +48,7 @@ func scalarMatMul(scalar float64, matrix []float64) []float64 {
 }
 
 // Then we initialize the neural networks by set the bias to zero and
-// a random float values to the weights from 0 to 1 beacause of sigmoid function
+// a random float values to the weights from 0 to 1 because of sigmoid function
 
 func (p *Perceptron) init() {
 	rand.Seed(time.Now().UnixNano())
@@ -100,9 +101,9 @@ func (p *Perceptron) train() {
 
 func main() {
 	p := Perceptron{}
-	XTrain := [][]float64{[]float64{0, 0, 1}, []float64{1, 1, 1}, []float64{1, 0, 1}, []float64{0, 1, 0}}
+	XTrain := [][]float64{[]float64 {0, 0, 1},{1, 1, 1}, {1, 0, 1}, {0, 1, 0}}
 	yTrain := []float64{0, 1, 1, 0}
-	XTest := [][]float64{[]float64{1, 0, 1}, []float64{0, 1, 0}}
+	XTest := [][]float64{[]float64{1, 0, 1}, {0, 1, 0}}
 
 	p.input = XTrain
 	p.currentOutput = yTrain
